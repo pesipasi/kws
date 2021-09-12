@@ -1,5 +1,5 @@
 
-PYTHON_VERSION = 2.7
+PYTHON_VERSION = 3.7
 PYTHON_INCLUDE = /usr/include/python$(PYTHON_VERSION)
 NUMPY_INCLUDE := $(shell python -c 'import numpy; print(numpy.get_include())')
 
@@ -17,7 +17,7 @@ kws.so:
 	g++ -std=c++11 $(OPT) -I$(PYTHON_INCLUDE) -I$(NUMPY_INCLUDE) \
 		-D PYTHON -fPIC -c kws.cpp
 	g++ -std=c++11 $(OPT) -shared -Wl,--export-dynamic kws.o -L$(BOOST_LIB) \
-		-lboost_python -L/usr/lib/python$(PYTHON_VERSION)/config \
+		-lboost_python -L/usr/lib/python$(PYTHON_VERSION)/config-$(PYTHON_VERSION)m-x86_64-linux-gnu \
 		-lpython$(PYTHON_VERSION) -o kws.so
 
 clean:
