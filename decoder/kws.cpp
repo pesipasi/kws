@@ -40,6 +40,7 @@ float cscore_kws(const float* probs,
     const int S = labels_w_blanks.size();
     float* prev_alphas = new float[S];
     float* next_alphas = new float[S];
+    cout << "Hello World!";
 
     std::fill(prev_alphas, prev_alphas + S, neginf);
 
