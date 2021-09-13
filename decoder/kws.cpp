@@ -38,7 +38,7 @@ float cscore_kws(const float* probs,
     const int S = labels_w_blanks.size();
     float* prev_alphas = new float[S];
     float* next_alphas = new float[S];
-    return S;
+    
     std::fill(prev_alphas, prev_alphas + S, neginf);
 
     int start = (((S /2) + repeats - T) < 0) ? 0 : 1,
