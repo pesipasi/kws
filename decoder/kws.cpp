@@ -3,6 +3,8 @@
 #include <vector>
 #include "kws.h"
 #include "ctc_utils.h"
+#include <iostream>
+using namespace std;
 
 namespace {
 
@@ -114,6 +116,7 @@ namespace np = boost::python::numpy;
 float score_kws(np::ndarray &probs, py::list labels,
                 const int blank) {
     // *NB* logits must be type float and row-major.
+    cout << "Hello World!";
     py::object shape = probs.attr("shape");
 
     unsigned int time = py::extract<unsigned int>(shape[0]);
